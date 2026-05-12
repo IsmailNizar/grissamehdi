@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Better mobile scaling -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Music Producer Card</title>
+
+  <!-- Prevent cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>Mehdi Grissa</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,6 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -19,24 +28,22 @@
     }
 
     body{
-    overflow:hidden;
-    height:100vh;
+      min-height:100dvh;
       display:flex;
       justify-content:center;
       align-items:center;
       background:#050505;
-      overflow:hidden;
       font-family:'Poppins',sans-serif;
       position:relative;
       padding:15px;
+      overflow-y:auto;
     }
 
     /* Animated Background */
 
     .bg{
-      position:absolute;
-      width:100%;
-      height:100%;
+      position:fixed;
+      inset:0;
       overflow:hidden;
       z-index:0;
     }
@@ -79,8 +86,7 @@
     .card{
       position:relative;
       z-index:2;
-      max-height:95vh;
-      width:90%;
+      width:100%;
       max-width:420px;
       padding:35px;
       border-radius:30px;
@@ -93,6 +99,7 @@
       text-align:center;
       color:white;
       animation:cardAppear 1.2s ease;
+      margin:20px 0;
     }
 
     @keyframes cardAppear{
@@ -153,7 +160,7 @@
       margin-top:8px;
       font-size:15px;
       text-transform:uppercase;
-      letter-spacing:3px;
+      letter-spacing:2px;
     }
 
     .bio{
@@ -169,16 +176,10 @@
       margin-top:30px;
       display:flex;
       justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
+      align-items:center;
+      gap:12px;
+      flex-wrap:nowrap;
     }
-    .socials a:nth-child(5):hover{
-  background:#00c853;
-}
-
-.socials a:nth-child(6):hover{
-  background:#ff9800;
-}
 
     .socials a{
       width:55px;
@@ -195,6 +196,7 @@
       transition:0.4s;
       position:relative;
       overflow:hidden;
+      flex-shrink:0;
     }
 
     .socials a::before{
@@ -218,6 +220,18 @@
       box-shadow:0 10px 25px rgba(255,0,102,0.4);
     }
 
+    /* Phone Hover */
+
+    .socials a:nth-child(4):hover::before{
+      background:#00c853;
+    }
+
+    /* Email Hover */
+
+    .socials a:nth-child(5):hover::before{
+      background:#ff9800;
+    }
+
     /* Button */
 
     .btn{
@@ -231,8 +245,6 @@
       letter-spacing:1px;
       background:linear-gradient(135deg,#ff0066,#6a00ff);
       transition:0.4s;
-      position:relative;
-      overflow:hidden;
     }
 
     .btn:hover{
@@ -248,61 +260,110 @@
         padding:25px;
       }
 
+      .profile-container{
+        width:130px;
+        height:130px;
+      }
+
       .name{
         font-size:24px;
       }
 
       .role{
-        font-size:12px;
+        font-size:11px;
+        letter-spacing:1px;
       }
 
       .bio{
         font-size:13px;
+        line-height:1.5;
       }
+
       .socials{
-        gap: 0;
+        gap:8px;
       }
+
       .socials a{
-        width:50px;
-        height:50px;
-        font-size:20px;
-        margin-right: 8px;
+        width:48px;
+        height:48px;
+        font-size:18px;
+        border-radius:15px;
+      }
+
+      .btn{
+        padding:12px 28px;
+        font-size:14px;
       }
     }
 
   </style>
 </head>
+
 <body>
+
+  <!-- Animated Background -->
 
   <div class="bg">
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
   </div>
 
+  <!-- Card -->
+
   <div class="card">
 
+    <!-- Profile -->
+
     <div class="profile-container">
+
       <div class="profile-ring"></div>
 
       <img 
         src="mehdi.jpeg"
         class="profile-img"
-        alt="Producer"
+        alt="Mehdi Grissa"
       >
+
     </div>
+
+    <!-- Name -->
 
     <h1 class="name">GRISSA MEHDI</h1>
 
-    <p class="role">Music Producer • DJ • Keytarist • Accordionist</p>
+    <!-- Role -->
 
-    <p class="bio">
-      Versatile DJ, keytarist, and accordionist, creating vibrant live performances that blend diverse styles and energy. With a passion for crafting dynamic atmospheres, I bring every event to life. I also have experience in music production and sound engineering to enhance every detail. Let’s create something unforgettable!
+    <p class="role">
+      Music Producer • DJ • Keytarist • Accordionist
     </p>
 
+    <!-- Bio -->
+
+    <p class="bio">
+      Versatile DJ, keytarist, and accordionist, creating vibrant live performances that blend diverse styles and energy.
+      With a passion for crafting dynamic atmospheres, I bring every event to life.
+      I also have experience in music production and sound engineering to enhance every detail.
+      Let’s create something unforgettable!
+    </p>
+
+    <!-- Social Icons -->
+
     <div class="socials">
-      <a href="https://www.instagram.com/grissa_mehdi?igsh=MWczbzFoc3ZiZGs1bg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@mehdi_grissa?_r=1&_t=ZS-96IikAPC1uD"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.facebook.com/share/1FyZdCJ8d8/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/grissa_mehdi" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@mehdi_grissa" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+
       <!-- Phone -->
       <a href="tel:+21699989194">
         <i class="fas fa-phone"></i>
@@ -312,9 +373,14 @@
       <a href="mailto:Mehdigrissa007@gmail.com">
         <i class="fas fa-envelope"></i>
       </a>
+
     </div>
 
-    <a href="#" class="btn">BOOK NOW</a>
+    <!-- Button -->
+
+    <a href="tel:+21699989194" class="btn">
+      BOOK NOW
+    </a>
 
   </div>
 
