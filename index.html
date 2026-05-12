@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Producer Card</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#050505;
+      overflow:hidden;
+      font-family:'Poppins',sans-serif;
+      position:relative;
+    }
+
+    /* Animated Background */
+
+    .bg{
+      position:absolute;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(80px);
+      animation:float 10s infinite ease-in-out;
+    }
+
+    .circle1{
+      width:300px;
+      height:300px;
+      background:#ff0066;
+      top:-80px;
+      left:-80px;
+    }
+
+    .circle2{
+      width:250px;
+      height:250px;
+      background:#6a00ff;
+      bottom:-60px;
+      right:-60px;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(30px);
+      }
+    }
+
+    /* Card */
+
+    .card{
+      position:relative;
+      z-index:2;
+      width:90%;
+      max-width:420px;
+      padding:35px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:
+      0 0 40px rgba(255,0,102,0.15),
+      0 0 80px rgba(106,0,255,0.15);
+      text-align:center;
+      color:white;
+      animation:cardAppear 1.2s ease;
+    }
+
+    @keyframes cardAppear{
+      from{
+        opacity:0;
+        transform:translateY(40px) scale(0.9);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+    }
+
+    /* Profile */
+
+    .profile-container{
+      position:relative;
+      width:150px;
+      height:150px;
+      margin:auto;
+    }
+
+    .profile-ring{
+      position:absolute;
+      inset:-5px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#ff0066,#6a00ff);
+      animation:rotate 5s linear infinite;
+    }
+
+    @keyframes rotate{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    .profile-img{
+      position:relative;
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid #111;
+      z-index:2;
+    }
+
+    /* Text */
+
+    .name{
+      margin-top:25px;
+      font-size:32px;
+      font-family:'Orbitron',sans-serif;
+      letter-spacing:2px;
+    }
+
+    .role{
+      color:#cfcfcf;
+      margin-top:8px;
+      font-size:15px;
+      text-transform:uppercase;
+      letter-spacing:3px;
+    }
+
+    .bio{
+      margin-top:20px;
+      line-height:1.7;
+      color:#d9d9d9;
+      font-size:14px;
+    }
+
+    /* Socials */
+
+    .socials{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .socials a:nth-child(5):hover{
+  background:#00c853;
+}
+
+.socials a:nth-child(6):hover{
+  background:#ff9800;
+}
+
+    .socials a{
+      width:55px;
+      height:55px;
+      border-radius:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      color:white;
+      font-size:22px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .socials a::before{
+      content:"";
+      position:absolute;
+      width:120%;
+      height:120%;
+      background:linear-gradient(135deg,#ff0066,#6a00ff);
+      top:100%;
+      left:-10%;
+      transition:0.4s;
+      z-index:-1;
+    }
+
+    .socials a:hover::before{
+      top:0;
+    }
+
+    .socials a:hover{
+      transform:translateY(-8px) scale(1.08);
+      box-shadow:0 10px 25px rgba(255,0,102,0.4);
+    }
+
+    /* Button */
+
+    .btn{
+      display:inline-block;
+      margin-top:35px;
+      padding:14px 34px;
+      border-radius:50px;
+      text-decoration:none;
+      color:white;
+      font-weight:600;
+      letter-spacing:1px;
+      background:linear-gradient(135deg,#ff0066,#6a00ff);
+      transition:0.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 10px 30px rgba(255,0,102,0.5);
+    }
+
+    /* Responsive */
+
+    @media(max-width:500px){
+
+      .card{
+        padding:25px;
+      }
+
+      .name{
+        font-size:24px;
+      }
+
+      .role{
+        font-size:12px;
+      }
+
+      .bio{
+        font-size:13px;
+      }
+
+      .socials a{
+        width:50px;
+        height:50px;
+        font-size:20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="bg">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+  </div>
+
+  <div class="card">
+
+    <div class="profile-container">
+      <div class="profile-ring"></div>
+
+      <img 
+        src="mehdi.jpeg"
+        class="profile-img"
+        alt="Producer"
+      >
+    </div>
+
+    <h1 class="name">GRISSA MEHDI</h1>
+
+    <p class="role">Music Producer • DJ • Keytarist • Accordionist</p>
+
+    <p class="bio">
+      Versatile DJ, keytarist, and accordionist, creating vibrant live performances that blend diverse styles and energy. With a passion for crafting dynamic atmospheres, I bring every event to life. I also have experience in music production and sound engineering to enhance every detail. Let’s create something unforgettable!
+    </p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/grissa_mehdi?igsh=MWczbzFoc3ZiZGs1bg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@mehdi_grissa?_r=1&_t=ZS-96IikAPC1uD"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.facebook.com/share/1FyZdCJ8d8/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+      <!-- Phone -->
+      <a href="tel:+21699989194">
+        <i class="fas fa-phone"></i>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:Mehdigrissa007@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+
+    <a href="#" class="btn">BOOK NOW</a>
+
+  </div>
+
+</body>
+</html>
